@@ -30,9 +30,9 @@ public class PlayerJoinListener implements Listener {
                 } catch (TownyException ignored) {}
             }
         }, 2L);
-        if (hud.equalsIgnoreCase("maphud")) {
+        if (!HUDManager.isMapHudActive(player) && hud.equalsIgnoreCase("maphud")) {
             HUDManager.toggleMapHud(player);
-        } else if (hud.equalsIgnoreCase("permhud")) {
+        } else if (!HUDManager.isPermHUDActive(player) && hud.equalsIgnoreCase("permhud")) {
             HUDManager.togglePermHUD(player);
         }
     }
