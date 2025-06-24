@@ -4,7 +4,7 @@ import com.palmergames.bukkit.towny.object.metadata.MetadataLoader;
 import io.github.sulkywhale.townypersistenttoggle.listeners.PlayerJoinListener;
 import io.github.sulkywhale.townypersistenttoggle.listeners.PlayerQuitListener;
 import io.github.sulkywhale.townypersistenttoggle.metadata.MetadataController;
-import io.github.sulkywhale.townypersistenttoggle.metadata.StringListDFDeserilizer;
+import io.github.sulkywhale.townypersistenttoggle.metadata.StringListDFDeserializer;
 import io.github.sulkywhale.townypersistenttoggle.metadata.StringListDataField;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -20,7 +20,7 @@ public class TownyPersistentToggle extends JavaPlugin {
         pm.registerEvents(new PlayerJoinListener(), this);
         pm.registerEvents(new PlayerQuitListener(), this);
 
-        MetadataLoader.getInstance().registerDeserializer(StringListDataField.typeID(), new StringListDFDeserilizer());
+        MetadataLoader.getInstance().registerDeserializer(StringListDataField.typeID(), new StringListDFDeserializer());
 
         getLogger().info("Plugin has been enabled.");
     }

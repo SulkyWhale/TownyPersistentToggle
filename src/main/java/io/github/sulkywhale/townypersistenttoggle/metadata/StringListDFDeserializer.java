@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class StringListDFDeserilizer implements DataFieldDeserializer<StringListDataField> {
+public class StringListDFDeserializer implements DataFieldDeserializer<StringListDataField> {
 
     @Override
     public @Nullable StringListDataField deserialize(@NotNull String key, @Nullable String value) {
