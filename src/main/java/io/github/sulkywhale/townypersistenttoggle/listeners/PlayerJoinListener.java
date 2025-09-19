@@ -24,11 +24,9 @@ public class PlayerJoinListener implements Listener {
         List<String> modes = MetadataController.getModesData(resident);
         String hud = MetadataController.getHUDsData(resident);
         Towny.getPlugin().getScheduler().runLater(() -> {
-            for (String mode : modes) {
-                try {
-                    ResidentModeHandler.toggleMode(resident, mode, false);
-                } catch (TownyException ignored) {}
-            }
+            try {
+                ResidentModeHandler.toggleModes(player, modes.toArray(new String[0]), false);
+            } catch (TownyException ignored) {}
         }, 2L);
         if (!HUDManager.isMapHudActive(player) && hud.equalsIgnoreCase("maphud")) {
             HUDManager.toggleMapHud(player);
