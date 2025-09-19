@@ -2,4 +2,4 @@ name: TownyPersistentToggle
 version: ${project.version}
 main: io.github.sulkywhale.townypersistenttoggle.TownyPersistentToggle
 api-version: '1.21'
-depends: [Towny]
+depend: [Towny]
