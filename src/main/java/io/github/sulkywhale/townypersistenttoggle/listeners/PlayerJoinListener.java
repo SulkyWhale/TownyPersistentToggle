@@ -21,6 +21,9 @@ public class PlayerJoinListener implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         Resident resident = TownyAPI.getInstance().getResident(player);
+        if (resident == null)
+            return;
+
         List<String> modes = MetadataController.getModesData(resident);
         String hud = MetadataController.getHUDsData(resident);
         Towny.getPlugin().getScheduler().runLater(() -> {
