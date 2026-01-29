@@ -4,3 +4,4 @@ main: io.github.sulkywhale.townypersistenttoggle.TownyPersistentToggle
 api-version: '1.21'
 authors: [Sulky_Whale]
 depend: [Towny]
+folia-supported: true
