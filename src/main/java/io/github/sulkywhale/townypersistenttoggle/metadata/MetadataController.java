@@ -17,42 +17,42 @@ public class MetadataController {
     private static final StringDataField huds = new StringDataField("townypersistenttoggle_huds", "", "HUDS");
 
     public static void setModesData(Resident resident, List<String> newModes) {
-        StringListDataField idf = (StringListDataField) modes.clone();
-        if (resident.hasMeta(idf.getKey())) {
-            resident.removeMetaData(idf);
+        StringListDataField sdf = (StringListDataField) modes.clone();
+        if (resident.hasMeta(sdf.getKey())) {
+            resident.removeMetaData(sdf);
         }
         if (!newModes.isEmpty()) {
-            resident.addMetaData(new StringListDataField(idf.getKey(), newModes, null));
+            resident.addMetaData(new StringListDataField(sdf.getKey(), newModes, null));
         }
     }
 
     public static List<String> getModesData(Resident resident) {
-        StringListDataField idf = (StringListDataField) modes.clone();
-        if (resident.hasMeta(idf.getKey())) {
-            CustomDataField<?> cdf = resident.getMetadata(idf.getKey());
-            if (cdf instanceof StringListDataField amount) {
-                return amount.getValue();
+        StringListDataField sdf = (StringListDataField) modes.clone();
+        if (resident.hasMeta(sdf.getKey())) {
+            CustomDataField<?> cdf = resident.getMetadata(sdf.getKey());
+            if (cdf instanceof StringListDataField value) {
+                return value.getValue();
             }
         }
         return Collections.emptyList();
     }
 
     public static void setHUDSData(Resident resident, String newHUDs) {
-        StringDataField idf = (StringDataField) huds.clone();
-        if (resident.hasMeta(idf.getKey())) {
-            resident.removeMetaData(idf);
+        StringDataField sdf = (StringDataField) huds.clone();
+        if (resident.hasMeta(sdf.getKey())) {
+            resident.removeMetaData(sdf);
         }
         if (newHUDs != null) {
-            resident.addMetaData(new StringDataField(idf.getKey(), newHUDs, null));
+            resident.addMetaData(new StringDataField(sdf.getKey(), newHUDs, null));
         }
     }
 
     public static String getHUDsData(Resident resident) {
-        StringDataField idf = (StringDataField) huds.clone();
-        if (resident.hasMeta(idf.getKey())) {
-            CustomDataField<?> cdf = resident.getMetadata(idf.getKey());
-            if (cdf instanceof StringDataField amount) {
-                return amount.getValue();
+        StringDataField sdf = (StringDataField) huds.clone();
+        if (resident.hasMeta(sdf.getKey())) {
+            CustomDataField<?> cdf = resident.getMetadata(sdf.getKey());
+            if (cdf instanceof StringDataField value) {
+                return value.getValue();
             }
         }
         return "";
