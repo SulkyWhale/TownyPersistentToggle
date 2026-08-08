@@ -22,7 +22,7 @@ public class MetadataController {
             resident.removeMetaData(sdf);
         }
         if (!newModes.isEmpty()) {
-            resident.addMetaData(new StringListDataField(sdf.getKey(), newModes, null));
+            resident.addMetaData(new StringListDataField(sdf.getKey(), newModes));
         }
     }
 
@@ -43,7 +43,7 @@ public class MetadataController {
             resident.removeMetaData(sdf);
         }
         if (newHUDs != null) {
-            resident.addMetaData(new StringDataField(sdf.getKey(), newHUDs, null));
+            resident.addMetaData(new StringDataField(sdf.getKey(), newHUDs));
         }
     }
 
