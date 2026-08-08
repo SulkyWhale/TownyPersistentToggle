@@ -1,5 +1,6 @@
 package io.github.sulkywhale.townypersistenttoggle;
 
+import com.palmergames.bukkit.towny.exceptions.TownyException;
 import com.palmergames.bukkit.towny.object.metadata.MetadataLoader;
 import io.github.sulkywhale.townypersistenttoggle.listeners.PlayerJoinListener;
 import io.github.sulkywhale.townypersistenttoggle.listeners.PlayerQuitListener;
@@ -13,9 +14,14 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class TownyPersistentToggle extends JavaPlugin {
 
+    private static TownyPersistentToggle plugin;
+
+    public TownyPersistentToggle() {
+        plugin = this;
+    }
+
     @Override
     public void onEnable() {
-        // Plugin startup logic
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new PlayerJoinListener(), this);
         pm.registerEvents(new PlayerQuitListener(), this);
@@ -27,11 +33,18 @@ public class TownyPersistentToggle extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
         for (Player player : Bukkit.getOnlinePlayers()) {
-            MetadataController.save(player);
+            try {
+                MetadataController.save(player);
+            } catch (TownyException e) {
+                getLogger().warning("Failed to save data for player " + player.getName() + " with error: " + e.getMessage());
+            }
         }
 
         getLogger().info("Plugin has been disabled.");
+    }
+
+    public static TownyPersistentToggle getPlugin() {
+        return plugin;
     }
 }

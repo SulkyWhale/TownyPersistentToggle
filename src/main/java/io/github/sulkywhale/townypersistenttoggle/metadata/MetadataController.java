@@ -1,6 +1,7 @@
 package io.github.sulkywhale.townypersistenttoggle.metadata;
 
 import com.palmergames.bukkit.towny.TownyAPI;
+import com.palmergames.bukkit.towny.exceptions.TownyException;
 import com.palmergames.bukkit.towny.huds.HUDManager;
 import com.palmergames.bukkit.towny.object.Resident;
 import com.palmergames.bukkit.towny.object.metadata.CustomDataField;
@@ -58,8 +59,8 @@ public class MetadataController {
         return "";
     }
 
-    public static void save(Player player) {
-        Resident resident = TownyAPI.getInstance().getResident(player);
+    public static void save(Player player) throws TownyException {
+        Resident resident = TownyAPI.getInstance().getResidentOrThrow(player);
         List<String> modes = ResidentModeHandler.getResidentModesNames(resident);
         boolean usingPermHUD = HUDManager.isPermHUDActive(player);
         boolean usingMapHUD = HUDManager.isMapHudActive(player);
