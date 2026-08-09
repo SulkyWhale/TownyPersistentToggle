@@ -25,9 +25,7 @@ public class TownyPersistentToggle extends JavaPlugin {
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new PlayerJoinListener(), this);
         pm.registerEvents(new PlayerQuitListener(), this);
-
         MetadataLoader.getInstance().registerDeserializer(StringListDataField.typeID(), new StringListDFDeserializer());
-
         getLogger().info("Plugin has been enabled.");
     }
 
