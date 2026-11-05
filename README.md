@@ -1,4 +1,4 @@
-# TownyPersistentToggle
+![TownyPersistentToggle](https://capsule-render.vercel.app/api?type=blur&height=300&color=gradient&section=header&reversal=false&text=TownyPersistentToggle&textBg=false&fontSize=70&fontAlign=50&fontAlignY=50&rotate=0&strokeWidth=0&desc=A+plugin+that+ensures+Towny+settings+persist+across+server+restarts&descSize=20&descAlign=50&descAlignY=70)
 
 TownyPersistentToggle is a Minecraft plugin built on the Paper API that preserves the state of Towny resident modes and HUDs across player logins and server restarts.
 
